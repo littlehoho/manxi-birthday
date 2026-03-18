@@ -690,8 +690,8 @@ a {
 
 .concept-a .composition-group {
   position: absolute;
-  left: 43%;
-  top: 54%;
+  left: 38%;
+  top: 56%;
   transform: translate(-50%, -50%);
   z-index: 3;
   width: min(15.5rem, 58%);
@@ -699,10 +699,10 @@ a {
 }
 
 .concept-a .rescue-arc {
-  left: 18%;
-  right: 12%;
-  top: 9%;
-  height: 54%;
+  left: 26%;
+  top: 30%;
+  width: 56%;
+  height: 26%;
   border: 2px dashed rgba(143, 186, 246, 0.26);
   border-bottom: 0;
   border-radius: 999px 999px 0 0;
@@ -726,10 +726,10 @@ a {
   background: rgba(136, 113, 153, 0.35);
 }
 
-.concept-a .balloon.one { background: #f4bfd7; top: 11%; left: 5%; }
-.concept-a .balloon.two { background: #a8c8fb; top: 9%; right: 6%; animation-delay: -2s; }
-.concept-a .balloon.three { background: #ffe39a; top: 29%; left: 15%; width: 3.85rem; animation-delay: -3s; }
-.concept-a .balloon.four { background: #f6d0df; top: 26%; right: 15%; width: 4rem; animation-delay: -1.2s; }
+.concept-a .balloon.one { background: #f4bfd7; top: 18%; left: 18%; }
+.concept-a .balloon.two { background: #a8c8fb; top: 16%; right: 18%; animation-delay: -2s; }
+.concept-a .balloon.three { background: #ffe39a; top: 34%; left: 30%; width: 3.85rem; animation-delay: -3s; }
+.concept-a .balloon.four { background: #f6d0df; top: 30%; right: 28%; width: 4rem; animation-delay: -1.2s; }
 
 .concept-a .moon-halo {
   left: 50%;
@@ -822,8 +822,8 @@ a {
 }
 
 .concept-a .paw-print.one {
-  top: 11%;
-  right: 29%;
+  left: 63%;
+  top: 20%;
   transform: rotate(-16deg);
 }
 
@@ -913,11 +913,11 @@ a {
 
 .concept-a .hero-dog {
   position: absolute;
-  left: 50%;
-  bottom: 0;
+  left: 41%;
+  top: 78%;
   width: min(8.2rem, 52%);
   height: min(9rem, 42%);
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   z-index: 3;
 }
 
