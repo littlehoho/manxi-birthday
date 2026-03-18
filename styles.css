@@ -713,7 +713,7 @@ a {
 .concept-a .balloon.four { background: #f6d0df; top: 29%; right: 14%; width: 4rem; animation-delay: -1.2s; }
 
 .concept-a .hero-stage {
-  inset: 6% 3% 7%;
+  inset: 2% 0 2%;
 }
 
 .concept-a .moon-halo {
@@ -727,8 +727,8 @@ a {
 }
 
 .concept-a .portrait-frame {
-  left: 69%;
-  top: 18%;
+  left: 58%;
+  top: 36%;
   transform: translateX(-50%);
   width: min(13.6rem, 62vw);
   min-height: 14rem;
@@ -853,8 +853,8 @@ a {
 }
 
 .concept-a .badge-hero {
-  left: 76%;
-  top: 9%;
+  left: 58%;
+  top: 14%;
   width: 4.2rem;
   transform: translateX(-50%);
   z-index: 2;
@@ -894,8 +894,8 @@ a {
 }
 
 .concept-a .hero-dog {
-  left: 69%;
-  bottom: 10%;
+  left: 58%;
+  bottom: 2%;
   width: min(8.2rem, 34vw);
   height: min(9rem, 38vw);
   transform: translateX(-50%);
@@ -1423,7 +1423,7 @@ a {
   }
 
   .concept-a .hero-stage {
-    inset: 5% 2% 7%;
+    inset: 1% 0 2%;
   }
 
   .concept-a .portrait-frame {
