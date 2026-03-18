@@ -266,6 +266,18 @@ a {
   color: #40384f;
 }
 
+.map-link {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(143, 186, 246, 0.45);
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.map-link:hover,
+.map-link:focus-visible {
+  color: #315f9f;
+  border-color: rgba(49, 95, 159, 0.6);
+}
+
 .hero-art {
   position: relative;
   min-height: 21.5rem;
@@ -703,7 +715,7 @@ a {
 .concept-a .balloon.four { background: #f6d0df; top: 29%; right: 14%; width: 4rem; animation-delay: -1.2s; }
 
 .concept-a .hero-stage {
-  inset: 10% 12% 10%;
+  inset: 8% 8% 8%;
 }
 
 .concept-a .moon-halo {
@@ -717,8 +729,8 @@ a {
 }
 
 .concept-a .portrait-frame {
-  left: 50%;
-  top: 23%;
+  left: 56%;
+  top: 22%;
   transform: translateX(-50%);
   width: min(13.6rem, 62vw);
   min-height: 14rem;
@@ -843,19 +855,19 @@ a {
 }
 
 .concept-a .badge-hero {
-  left: 50%;
-  top: 11%;
-  width: 5rem;
+  left: 61%;
+  top: 12%;
+  width: 4.2rem;
   transform: translateX(-50%);
   z-index: 2;
   animation: drift 4.6s ease-in-out infinite;
-  background: rgba(255, 230, 161, 0.38);
-  border-color: rgba(230, 191, 95, 0.34);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(230, 191, 95, 0.1);
 }
 
 .concept-a .badge-paw {
   position: absolute;
-  inset: 0.85rem;
+  inset: 0.72rem;
 }
 
 .concept-a .badge-paw span {
@@ -884,8 +896,8 @@ a {
 }
 
 .concept-a .hero-dog {
-  left: 50%;
-  bottom: 4%;
+  left: 56%;
+  bottom: 6%;
   width: min(8.2rem, 34vw);
   height: min(9rem, 38vw);
   transform: translateX(-50%);
@@ -1413,7 +1425,7 @@ a {
   }
 
   .concept-a .hero-stage {
-    inset: 10% 12% 9%;
+    inset: 8% 9% 8%;
   }
 
   .concept-a .portrait-frame {
