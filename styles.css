@@ -1426,8 +1426,8 @@ a {
     padding: 1.2rem 0 1.55rem;
   }
 
-  .concept-a .hero-stage {
-    inset: 1% 0 2%;
+  .concept-a .composition-group {
+    width: 15.2rem;
   }
 
   .concept-a .portrait-frame {
