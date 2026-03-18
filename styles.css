@@ -116,37 +116,28 @@ a {
 }
 
 .hero-title {
-  margin: 0.75rem 0 0.2rem;
+  margin: 0 0 0.15rem;
   font-family: var(--serif);
-  font-size: clamp(2.6rem, 12vw, 5.8rem);
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-}
-
-.hero-title .accent {
-  display: block;
-  font-family: var(--display);
-  font-size: clamp(0.92rem, 3.8vw, 1.2rem);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-bottom: 0.8rem;
+  font-size: clamp(3.3rem, 15vw, 6.25rem);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
 }
 
 .hero-age {
-  margin: 0 0 0.95rem;
+  margin: 0 0 1rem;
   font-family: var(--display);
-  font-size: clamp(1.2rem, 5.2vw, 1.8rem);
-  font-weight: 600;
+  font-size: clamp(1.2rem, 5vw, 1.75rem);
+  font-weight: 700;
   color: var(--muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .hero-subtitle {
   max-width: 34rem;
-  margin: 0 0 1.15rem;
+  margin: 0 0 1.3rem;
   color: var(--muted);
-  font-size: 1.02rem;
-  line-height: 1.7;
+  font-size: 1.03rem;
+  line-height: 1.75;
 }
 
 .hero-actions,
@@ -188,8 +179,8 @@ a {
 }
 
 .button-rsvp {
-  min-height: 3.5rem;
-  padding-inline: 1.45rem;
+  min-height: 3.65rem;
+  padding-inline: 1.6rem;
   font-size: 1rem;
   letter-spacing: 0.02em;
   position: relative;
@@ -208,8 +199,8 @@ a {
 .hero-event-card {
   display: grid;
   gap: 0.8rem;
-  margin: 0 0 1.15rem;
-  padding: 1rem 1rem 1.05rem;
+  margin: 0 0 1.25rem;
+  padding: 1.05rem 1.05rem 1.1rem;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
@@ -222,7 +213,7 @@ a {
 
 .hero-event-item .value {
   font-size: 1rem;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .hero-art {
@@ -242,7 +233,7 @@ a {
 .section-title {
   margin: 0 0 0.4rem;
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 7vw, 3rem);
+  font-size: clamp(1.9rem, 7vw, 3.05rem);
   line-height: 1;
   letter-spacing: -0.04em;
 }
@@ -287,7 +278,8 @@ a {
 
 .detail-note {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.97rem;
+  line-height: 1.65;
 }
 
 .rsvp-head {
@@ -373,16 +365,16 @@ a {
 }
 
 .concept-a {
-  --bg: radial-gradient(circle at top left, #fff2f7 0%, #fff8f8 38%, #f6fff8 100%);
+  --bg: radial-gradient(circle at top left, #fff4f7 0%, #fff9f8 34%, #f8fbff 68%, #f8fff9 100%);
   --surface: rgba(255, 255, 255, 0.72);
   --surface-strong: rgba(255, 255, 255, 0.9);
-  --text: #4f425f;
-  --muted: #72657f;
-  --accent: #dd84b0;
-  --accent-2: #bba7f3;
-  --accent-3: #c9ecdf;
-  --accent-4: #ffe8b2;
-  --shadow: 0 30px 60px rgba(144, 101, 147, 0.12);
+  --text: #4b4256;
+  --muted: #6d6678;
+  --accent: #dc7e99;
+  --accent-2: #8fbaf6;
+  --accent-3: #d5ebff;
+  --accent-4: #ffe39a;
+  --shadow: 0 30px 60px rgba(121, 105, 150, 0.12);
 }
 
 .concept-a .hero-card,
@@ -398,12 +390,12 @@ a {
 .concept-a .motif-corners::after {
   background:
     radial-gradient(circle at center, rgba(255, 255, 255, 0.9) 0 0.34rem, transparent 0.38rem),
-    radial-gradient(circle at 1.15rem 2.25rem, rgba(239, 151, 193, 0.18) 0 0.46rem, transparent 0.5rem),
-    radial-gradient(circle at 2.3rem 1.15rem, rgba(191, 234, 216, 0.32) 0 0.52rem, transparent 0.57rem),
-    radial-gradient(circle at 3.45rem 3.15rem, rgba(189, 168, 255, 0.22) 0 0.4rem, transparent 0.44rem),
-    linear-gradient(135deg, rgba(232, 190, 223, 0.45), rgba(255, 255, 255, 0) 62%);
-  border-top: 1px solid rgba(223, 187, 233, 0.55);
-  border-left: 1px solid rgba(223, 187, 233, 0.55);
+    radial-gradient(circle at 1.15rem 2.25rem, rgba(220, 126, 153, 0.16) 0 0.46rem, transparent 0.5rem),
+    radial-gradient(circle at 2.3rem 1.15rem, rgba(143, 186, 246, 0.24) 0 0.52rem, transparent 0.57rem),
+    radial-gradient(circle at 3.45rem 3.15rem, rgba(255, 227, 154, 0.25) 0 0.4rem, transparent 0.44rem),
+    linear-gradient(135deg, rgba(222, 196, 229, 0.42), rgba(255, 255, 255, 0) 62%);
+  border-top: 1px solid rgba(214, 190, 235, 0.52);
+  border-left: 1px solid rgba(214, 190, 235, 0.52);
   border-radius: 1.75rem 0 0 0;
 }
 
@@ -415,34 +407,35 @@ a {
 .concept-a .count-badge,
 .concept-a .name-list li {
   background: rgba(255, 255, 255, 0.78);
-  color: #755c89;
+  color: #6d5b80;
 }
 
 .concept-a .button-primary {
-  background: linear-gradient(135deg, #d97ba9, #c3a2ef 58%, #b4ead9);
-  box-shadow: 0 16px 34px rgba(201, 152, 230, 0.28);
+  background: linear-gradient(135deg, #d9718f, #90b9f4 60%, #ffd86f);
+  box-shadow: 0 16px 34px rgba(149, 168, 229, 0.28);
 }
 
 .concept-a .button-primary:hover,
 .concept-a .button-primary:focus-visible {
-  box-shadow: 0 18px 40px rgba(201, 152, 230, 0.34);
+  box-shadow: 0 18px 40px rgba(149, 168, 229, 0.34);
 }
 
 .concept-a .button-secondary {
-  border-color: rgba(222, 195, 245, 0.72);
-  color: #684f7e;
+  border-color: rgba(203, 209, 246, 0.8);
+  color: #5f5973;
 }
 
 .concept-a .hero-art {
   background:
-    radial-gradient(circle at 22% 18%, rgba(255, 233, 174, 0.48), transparent 18%),
-    radial-gradient(circle at 74% 18%, rgba(191, 234, 216, 0.65), transparent 18%),
-    linear-gradient(180deg, rgba(255, 247, 251, 0.92), rgba(242, 250, 247, 0.68));
-  border: 1px solid rgba(234, 208, 239, 0.6);
+    radial-gradient(circle at 20% 20%, rgba(255, 227, 154, 0.34), transparent 18%),
+    radial-gradient(circle at 74% 16%, rgba(143, 186, 246, 0.28), transparent 18%),
+    radial-gradient(circle at 72% 72%, rgba(220, 126, 153, 0.12), transparent 22%),
+    linear-gradient(180deg, rgba(255, 249, 251, 0.96), rgba(245, 249, 255, 0.76));
+  border: 1px solid rgba(223, 214, 241, 0.75);
 }
 
 .concept-a .balloon {
-  width: 4.5rem;
+  width: 4.35rem;
   aspect-ratio: 0.84;
   border-radius: 50% 50% 48% 52% / 46% 46% 58% 58%;
   box-shadow: inset -10px -10px 22px rgba(255, 255, 255, 0.35);
@@ -459,36 +452,38 @@ a {
   background: rgba(136, 113, 153, 0.35);
 }
 
-.concept-a .balloon.one { background: #f4bfd7; top: 13%; left: 10%; }
-.concept-a .balloon.two { background: #cfbffb; top: 10%; right: 10%; animation-delay: -2s; }
+.concept-a .balloon.one { background: #f4bfd7; top: 14%; left: 8%; }
+.concept-a .balloon.two { background: #a8c8fb; top: 11%; right: 10%; animation-delay: -2s; }
+.concept-a .balloon.three { background: #ffe39a; top: 30%; left: 19%; width: 3.6rem; animation-delay: -3s; }
+.concept-a .balloon.four { background: #f6d0df; top: 28%; right: 18%; width: 3.8rem; animation-delay: -1.2s; }
 
 .concept-a .hero-stage {
-  inset: 12% 12% 10%;
+  inset: 12% 14% 14%;
 }
 
 .concept-a .moon-halo {
   left: 50%;
-  top: 3%;
-  width: min(12rem, 50vw);
-  height: min(12rem, 50vw);
+  top: 10%;
+  width: min(13rem, 52vw);
+  height: min(13rem, 52vw);
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 244, 214, 0.96), rgba(255, 244, 214, 0.18) 68%, transparent 72%);
+  background: radial-gradient(circle, rgba(255, 244, 214, 0.92), rgba(255, 244, 214, 0.18) 68%, transparent 72%);
 }
 
 .concept-a .portrait-frame {
   left: 50%;
-  top: 11%;
+  top: 19%;
   transform: translateX(-50%);
   width: min(12.5rem, 58vw);
-  min-height: 14rem;
-  padding: 1.4rem 1rem 1.2rem;
-  border-radius: 46% 46% 40% 40% / 28% 28% 24% 24%;
+  min-height: 13rem;
+  padding: 1.25rem 1rem 1.1rem;
+  border-radius: 40% 40% 43% 43% / 24% 24% 28% 28%;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 254, 0.82)),
-    linear-gradient(135deg, rgba(239, 151, 193, 0.18), rgba(189, 168, 255, 0.1));
-  border: 1px solid rgba(231, 202, 237, 0.85);
-  box-shadow: 0 22px 40px rgba(176, 145, 191, 0.18);
+    linear-gradient(135deg, rgba(220, 126, 153, 0.14), rgba(143, 186, 246, 0.1));
+  border: 1px solid rgba(223, 208, 241, 0.92);
+  box-shadow: 0 22px 40px rgba(168, 163, 197, 0.18);
   display: grid;
   place-items: center;
   text-align: center;
@@ -514,67 +509,91 @@ a {
 .concept-a .portrait-label {
   position: relative;
   z-index: 1;
-  margin-top: -0.5rem;
-  font-size: 0.8rem;
+  margin-top: -0.35rem;
+  font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #7f6b92;
+  color: #6d6f8c;
 }
 
-.concept-a .cake {
-  left: 50%;
-  bottom: 4%;
-  width: min(13.2rem, 54vw);
-  transform: translateX(-50%);
+.concept-a .paw-print {
+  width: 3.5rem;
+  height: 3.6rem;
+  opacity: 0.42;
 }
 
-.concept-a .cake-base,
-.concept-a .cake-top {
-  border-radius: 1.5rem;
-  margin: 0 auto;
-}
-
-.concept-a .cake-top {
-  width: 72%;
-  height: 2rem;
-  background: #fff7fb;
-  border: 2px solid rgba(239, 151, 193, 0.56);
-}
-
-.concept-a .cake-base {
-  width: 100%;
-  height: 4.2rem;
-  background: linear-gradient(180deg, #ffd8ea, #fff6d5);
-  border: 2px solid rgba(225, 178, 229, 0.5);
-}
-
-.concept-a .candle {
+.concept-a .paw-print span {
   position: absolute;
-  bottom: 5.95rem;
-  width: 0.72rem;
-  height: 2.9rem;
-  border-radius: 999px;
-  background: repeating-linear-gradient(180deg, #ffffff 0 8px, #ef97c1 8px 16px);
+  display: block;
+  background: rgba(220, 126, 153, 0.2);
+  border-radius: 50%;
 }
 
-.concept-a .candle::before {
+.concept-a .paw-print .toe {
+  width: 0.78rem;
+  height: 0.92rem;
+}
+
+.concept-a .paw-print .toe-a { left: 0.1rem; top: 0.6rem; }
+.concept-a .paw-print .toe-b { left: 0.85rem; top: 0.05rem; }
+.concept-a .paw-print .toe-c { right: 0.85rem; top: 0.05rem; }
+.concept-a .paw-print .toe-d { right: 0.1rem; top: 0.6rem; }
+
+.concept-a .paw-print .pad {
+  left: 50%;
+  bottom: 0.15rem;
+  width: 2.15rem;
+  height: 1.7rem;
+  transform: translateX(-50%);
+  border-radius: 52% 52% 42% 42%;
+}
+
+.concept-a .paw-print.one {
+  top: 16%;
+  left: 32%;
+  transform: rotate(-16deg);
+}
+
+.concept-a .paw-print.two {
+  right: 20%;
+  bottom: 18%;
+  transform: rotate(14deg);
+}
+
+.concept-a .paw-print.two span {
+  background: rgba(143, 186, 246, 0.22);
+}
+
+.concept-a .badge {
+  width: 4rem;
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(219, 213, 240, 0.9);
+  clip-path: polygon(50% 0%, 90% 18%, 100% 54%, 73% 94%, 27% 94%, 0% 54%, 10% 18%);
+  box-shadow: 0 12px 28px rgba(177, 180, 214, 0.14);
+}
+
+.concept-a .badge::before {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: 100%;
-  transform: translateX(-50%);
-  width: 0.8rem;
-  height: 1rem;
-  border-radius: 55% 45% 55% 45%;
-  background: linear-gradient(180deg, #ffe99c, #ffbb57);
-  animation: flicker 1.6s ease-in-out infinite;
+  inset: 0.7rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(220, 126, 153, 0.14), rgba(143, 186, 246, 0.22), rgba(255, 227, 154, 0.26));
 }
 
-.concept-a .candle.one { left: 14%; }
-.concept-a .candle.two { left: 37%; }
-.concept-a .candle.three { left: 60%; }
-.concept-a .candle.four { left: 83%; }
+.concept-a .badge-one {
+  left: 12%;
+  bottom: 16%;
+  transform: rotate(-8deg);
+}
+
+.concept-a .badge-two {
+  right: 8%;
+  top: 18%;
+  width: 3.4rem;
+  transform: rotate(10deg);
+}
 
 .concept-a .sparkle {
   width: 1.1rem;
@@ -584,9 +603,9 @@ a {
   animation: twinkle 2.8s ease-in-out infinite;
 }
 
-.concept-a .sparkle.one { top: 16%; right: 16%; }
-.concept-a .sparkle.two { bottom: 18%; left: 12%; animation-delay: -1s; }
-.concept-a .sparkle.three { top: 31%; left: 50%; animation-delay: -1.8s; }
+.concept-a .sparkle.one { top: 14%; right: 27%; }
+.concept-a .sparkle.two { bottom: 14%; left: 20%; animation-delay: -1s; }
+.concept-a .sparkle.three { top: 44%; left: 58%; animation-delay: -1.8s; }
 
 .concept-b {
   --bg: linear-gradient(180deg, #fffdf8 0%, #fff9f4 45%, #f6fbfb 100%);
@@ -972,16 +991,12 @@ a {
   }
 
   .concept-a .hero-stage {
-    inset: 11% 14% 8%;
+    inset: 10% 14% 10%;
   }
 
   .concept-a .portrait-frame {
     width: 14rem;
-    min-height: 15.5rem;
-  }
-
-  .concept-a .cake {
-    width: 14rem;
+    min-height: 14.75rem;
   }
 }
 
