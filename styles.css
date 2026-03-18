@@ -26,11 +26,14 @@
 
 html {
   scroll-behavior: smooth;
+  min-height: 100%;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  min-height: 100%;
+  overflow-y: auto;
   font-family: var(--body);
   background: var(--bg);
   color: var(--text);
@@ -49,7 +52,7 @@ a {
 
 .page-shell {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .container {
@@ -121,7 +124,7 @@ a {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #8a728f;
+  color: #76556f;
 }
 
 .hero-ribbon {
@@ -144,6 +147,7 @@ a {
   font-size: clamp(3.5rem, 16vw, 6.8rem);
   line-height: 0.84;
   letter-spacing: -0.06em;
+  color: #382f47;
 }
 
 .hero-age {
@@ -151,16 +155,16 @@ a {
   font-family: var(--display);
   font-size: clamp(1.22rem, 5vw, 1.82rem);
   font-weight: 700;
-  color: #5d5d74;
+  color: #4f4e67;
   letter-spacing: 0.015em;
 }
 
 .hero-subtitle {
   max-width: 32rem;
   margin: 0 0 1.2rem;
-  color: #5b5568;
-  font-size: 1.04rem;
-  line-height: 1.72;
+  color: #4d4659;
+  font-size: 1.03rem;
+  line-height: 1.66;
 }
 
 .cta-copy {
@@ -175,21 +179,13 @@ a {
 .cta-question {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--text);
+  color: #372f45;
 }
 
 .cta-deadline {
   margin-top: 0.18rem;
-  color: #6b6477;
+  color: #5d566a;
   font-size: 0.94rem;
-}
-
-.hero-note {
-  margin: 0.95rem 0 0;
-  max-width: 28rem;
-  color: #746d80;
-  font-size: 0.92rem;
-  line-height: 1.55;
 }
 
 .hero-actions,
@@ -226,8 +222,7 @@ a {
 }
 
 .button-secondary {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .button-rsvp {
@@ -237,6 +232,7 @@ a {
   letter-spacing: 0.02em;
   position: relative;
   animation: softPulse 2.8s ease-in-out infinite;
+  box-shadow: 0 18px 36px rgba(149, 168, 229, 0.34);
 }
 
 .button-rsvp::after {
@@ -255,9 +251,8 @@ a {
   margin: 0 0 1.25rem;
   padding: 1.08rem 1.08rem 1.15rem;
   border-radius: 26px;
-  background: rgba(255, 255, 255, 0.74);
-  border: 1px solid rgba(221, 215, 241, 0.66);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(210, 202, 236, 0.84);
 }
 
 .hero-event-item {
@@ -268,6 +263,7 @@ a {
 .hero-event-item .value {
   font-size: 1.01rem;
   line-height: 1.58;
+  color: #40384f;
 }
 
 .hero-art {
@@ -290,6 +286,7 @@ a {
   font-size: clamp(2rem, 7vw, 3.2rem);
   line-height: 0.98;
   letter-spacing: -0.04em;
+  color: #382f47;
 }
 
 .section-tag {
@@ -298,15 +295,15 @@ a {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 700;
-  color: #8a728f;
+  color: #76556f;
 }
 
 .section-kicker {
   margin: 0 0 1.05rem;
-  color: var(--muted);
-  max-width: 31rem;
-  line-height: 1.55;
-  font-size: 0.92rem;
+  color: #625a6e;
+  max-width: 26rem;
+  line-height: 1.42;
+  font-size: 0.89rem;
 }
 
 .info-card,
@@ -316,7 +313,7 @@ a {
 }
 
 .primary-card {
-  padding: 1.55rem;
+  padding: 1.65rem;
 }
 
 .section-intro {
@@ -358,9 +355,9 @@ a {
 }
 
 .detail-note {
-  color: var(--muted);
-  font-size: 0.93rem;
-  line-height: 1.55;
+  color: #625a6e;
+  font-size: 0.91rem;
+  line-height: 1.48;
 }
 
 .detail-bullets {
@@ -375,12 +372,16 @@ a {
   gap: 0.65rem;
 }
 
+.detail-bullets.short {
+  gap: 0.55rem;
+}
+
 .detail-bullets li {
   position: relative;
   padding-left: 1.15rem;
-  color: #666073;
-  font-size: 0.96rem;
-  line-height: 1.48;
+  color: #5a5365;
+  font-size: 0.93rem;
+  line-height: 1.4;
 }
 
 .detail-bullets li::before {
@@ -474,10 +475,10 @@ a {
 }
 
 .guest-group {
-  padding: 1.05rem;
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.52);
-  border: 1px solid rgba(221, 214, 241, 0.58);
+  padding: 1.15rem;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(210, 202, 236, 0.82);
 }
 
 .guest-group-head {
@@ -492,8 +493,9 @@ a {
 .guest-group-title {
   margin: 0;
   font-family: var(--display);
-  font-size: 1rem;
+  font-size: 1.03rem;
   letter-spacing: 0.04em;
+  color: #443b53;
 }
 
 .guest-group-count {
@@ -507,6 +509,11 @@ a {
   flex-wrap: wrap;
   gap: 0.7rem;
   margin-top: 0.95rem;
+}
+
+.hero-count {
+  background: linear-gradient(135deg, rgba(217, 113, 143, 0.16), rgba(143, 186, 246, 0.18), rgba(255, 216, 111, 0.26));
+  border: 1px solid rgba(208, 196, 233, 0.82);
 }
 
 .name-list {
@@ -598,7 +605,6 @@ a {
 .concept-a .rsvp-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 252, 255, 0.78));
   border: 1px solid rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(16px);
 }
 
 .concept-a .motif-corners::before,
@@ -694,34 +700,34 @@ a {
 .concept-a .balloon.one { background: #f4bfd7; top: 14%; left: 8%; }
 .concept-a .balloon.two { background: #a8c8fb; top: 11%; right: 10%; animation-delay: -2s; }
 .concept-a .balloon.three { background: #ffe39a; top: 31%; left: 16%; width: 3.85rem; animation-delay: -3s; }
-.concept-a .balloon.four { background: #f6d0df; top: 27%; right: 14%; width: 4rem; animation-delay: -1.2s; }
+.concept-a .balloon.four { background: #f6d0df; top: 29%; right: 14%; width: 4rem; animation-delay: -1.2s; }
 
 .concept-a .hero-stage {
-  inset: 11% 13% 12%;
+  inset: 10% 12% 10%;
 }
 
 .concept-a .moon-halo {
   left: 50%;
-  top: 10%;
-  width: min(13rem, 52vw);
-  height: min(13rem, 52vw);
+  top: 18%;
+  width: min(15rem, 60vw);
+  height: min(15rem, 60vw);
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 244, 214, 0.92), rgba(255, 244, 214, 0.18) 68%, transparent 72%);
+  background: radial-gradient(circle, rgba(255, 244, 214, 0.72), rgba(255, 244, 214, 0.12) 66%, transparent 72%);
 }
 
 .concept-a .portrait-frame {
   left: 50%;
-  top: 18%;
+  top: 23%;
   transform: translateX(-50%);
   width: min(13.6rem, 62vw);
   min-height: 14rem;
   padding: 1.35rem 1.05rem 1.15rem;
   border-radius: 40% 40% 43% 43% / 24% 24% 28% 28%;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 254, 0.82)),
+    linear-gradient(180deg, rgba(255, 249, 252, 0.96), rgba(255, 246, 251, 0.82)),
     linear-gradient(135deg, rgba(220, 126, 153, 0.14), rgba(143, 186, 246, 0.1));
-  border: 1px solid rgba(223, 208, 241, 0.92);
+  border: 1px solid rgba(223, 208, 241, 0.82);
   box-shadow: 0 22px 40px rgba(168, 163, 197, 0.18);
   display: grid;
   place-items: center;
@@ -732,7 +738,7 @@ a {
   content: "";
   position: absolute;
   inset: 0.65rem;
-  border: 1px solid rgba(228, 211, 236, 0.8);
+  border: 1px solid rgba(228, 211, 236, 0.56);
   border-radius: inherit;
 }
 
@@ -807,8 +813,8 @@ a {
 .concept-a .badge {
   width: 4rem;
   aspect-ratio: 1;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(219, 213, 240, 0.9);
+  background: rgba(249, 242, 248, 0.72);
+  border: 1px solid rgba(219, 213, 240, 0.48);
   clip-path: polygon(50% 0%, 90% 18%, 100% 54%, 73% 94%, 27% 94%, 0% 54%, 10% 18%);
   box-shadow: 0 12px 28px rgba(177, 180, 214, 0.14);
 }
@@ -818,7 +824,7 @@ a {
   position: absolute;
   inset: 0.7rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(220, 126, 153, 0.14), rgba(143, 186, 246, 0.22), rgba(255, 227, 154, 0.26));
+  background: linear-gradient(135deg, rgba(220, 126, 153, 0.16), rgba(143, 186, 246, 0.18), rgba(255, 227, 154, 0.26));
 }
 
 .concept-a .badge-one {
@@ -829,18 +835,22 @@ a {
 
 .concept-a .badge-two {
   right: 8%;
-  top: 18%;
+  top: 12%;
   width: 3.4rem;
   transform: rotate(10deg);
+  background: rgba(169, 201, 249, 0.24);
+  border-color: rgba(141, 176, 235, 0.26);
 }
 
 .concept-a .badge-hero {
   left: 50%;
-  top: 10%;
-  width: 4.8rem;
+  top: 11%;
+  width: 5rem;
   transform: translateX(-50%);
   z-index: 2;
   animation: drift 4.6s ease-in-out infinite;
+  background: rgba(255, 230, 161, 0.38);
+  border-color: rgba(230, 191, 95, 0.34);
 }
 
 .concept-a .badge-paw {
@@ -871,6 +881,128 @@ a {
   height: 1.18rem;
   transform: translateX(-50%);
   border-radius: 52% 52% 42% 42%;
+}
+
+.concept-a .hero-dog {
+  left: 50%;
+  bottom: 4%;
+  width: min(8.2rem, 34vw);
+  height: min(9rem, 38vw);
+  transform: translateX(-50%);
+}
+
+.concept-a .dog-ear,
+.concept-a .dog-head,
+.concept-a .dog-face,
+.concept-a .dog-body,
+.concept-a .dog-tag,
+.concept-a .dog-eye,
+.concept-a .dog-nose,
+.concept-a .dog-hat {
+  position: absolute;
+}
+
+.concept-a .dog-ear {
+  top: 1.2rem;
+  width: 2rem;
+  height: 3rem;
+  background: #8f6056;
+  border-radius: 70% 30% 60% 40%;
+}
+
+.concept-a .dog-ear.left {
+  left: 0.7rem;
+  transform: rotate(-18deg);
+}
+
+.concept-a .dog-ear.right {
+  right: 0.7rem;
+  transform: scaleX(-1) rotate(-18deg);
+}
+
+.concept-a .dog-head {
+  left: 50%;
+  top: 0.8rem;
+  width: 5.1rem;
+  height: 5rem;
+  transform: translateX(-50%);
+  background: #c8896d;
+  border-radius: 44% 44% 48% 48%;
+  box-shadow: inset -10px -12px 0 rgba(246, 213, 182, 0.42);
+}
+
+.concept-a .dog-face {
+  left: 50%;
+  bottom: 0.6rem;
+  width: 3.15rem;
+  height: 2.4rem;
+  transform: translateX(-50%);
+  background: #f5d7b6;
+  border-radius: 48% 48% 54% 54%;
+}
+
+.concept-a .dog-hat {
+  left: 50%;
+  top: -0.2rem;
+  width: 3.35rem;
+  height: 1.5rem;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #e7708d, #cf5f77);
+  border-radius: 55% 55% 24% 24%;
+}
+
+.concept-a .dog-hat::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #ffe39a;
+}
+
+.concept-a .dog-eye {
+  top: 2.15rem;
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 50%;
+  background: #2f2634;
+}
+
+.concept-a .dog-eye.left { left: 1.6rem; }
+.concept-a .dog-eye.right { right: 1.6rem; }
+
+.concept-a .dog-nose {
+  left: 50%;
+  top: 2.8rem;
+  width: 0.58rem;
+  height: 0.42rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #3b3038;
+}
+
+.concept-a .dog-body {
+  left: 50%;
+  bottom: 0;
+  width: 4.7rem;
+  height: 3.4rem;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #8db7f2, #6e9ce0);
+  border-radius: 42% 42% 18% 18%;
+}
+
+.concept-a .dog-tag {
+  left: 50%;
+  bottom: 2.55rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #ffe39a;
+  box-shadow: 0 0 0 0.18rem rgba(255, 255, 255, 0.32);
 }
 
 .concept-a .sparkle {
@@ -1287,6 +1419,11 @@ a {
   .concept-a .portrait-frame {
     width: 15.2rem;
     min-height: 15.5rem;
+  }
+
+  .concept-a .hero-dog {
+    width: 9rem;
+    height: 9.8rem;
   }
 }
 
