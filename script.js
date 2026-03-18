@@ -204,6 +204,8 @@
       ].filter(Boolean),
       status: [
         config.statusField,
+        "Would you be able to attend?",
+        "Would you be able to attend",
         "RSVP Status",
         "RSVP",
         "Response",
@@ -268,18 +270,27 @@
   }
 
   function getFieldValue(row, fieldNames) {
-    const key = fieldNames.find((candidate) => Object.prototype.hasOwnProperty.call(row, candidate));
-    return key ? row[key] : "";
+    const rowKeys = Object.keys(row);
+    const actualKey = rowKeys.find((rowKey) =>
+      fieldNames.some((candidate) => normalizeHeader(rowKey) === normalizeHeader(candidate))
+    );
+
+    return actualKey ? row[actualKey] : "";
   }
 
   function normalizeStatus(value) {
     const normalized = String(value || "").trim().toLowerCase();
 
-    if (normalized.includes("yes")) {
+    if (normalized.includes("yes") || normalized.includes("be there")) {
       return "yes";
     }
 
-    if (normalized.includes("no")) {
+    if (
+      normalized.includes("no") ||
+      normalized.includes("can't make it") ||
+      normalized.includes("cannot make it") ||
+      normalized.includes("sorry")
+    ) {
       return "no";
     }
 
@@ -303,6 +314,14 @@
     const firstToken = trimmed.split(/\s+/)[0];
     const clean = firstToken.replace(/[^A-Za-z'-]/g, "");
     return clean ? clean.charAt(0).toUpperCase() + clean.slice(1).toLowerCase() : "";
+  }
+
+  function normalizeHeader(value) {
+    return String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/[?]/g, "")
+      .replace(/\s+/g, " ");
   }
 
   function parseCsv(text) {
