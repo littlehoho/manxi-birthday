@@ -679,12 +679,31 @@ a {
   border: 1px solid rgba(223, 214, 241, 0.75);
 }
 
+.concept-a .hero-scene {
+  position: absolute;
+  inset: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.concept-a .composition-group {
+  position: relative;
+  z-index: 3;
+  width: min(14.5rem, 62%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2.5rem;
+}
+
 .concept-a .rescue-arc {
-  left: 14%;
-  right: 14%;
+  left: 50%;
   top: 14%;
-  height: 68%;
-  border: 2px dashed rgba(143, 186, 246, 0.24);
+  width: min(18rem, 78%);
+  height: min(15rem, 64%);
+  transform: translateX(-50%);
+  border: 2px dashed rgba(143, 186, 246, 0.26);
   border-bottom: 0;
   border-radius: 999px 999px 0 0;
 }
@@ -707,18 +726,14 @@ a {
   background: rgba(136, 113, 153, 0.35);
 }
 
-.concept-a .balloon.one { background: #f4bfd7; top: 14%; left: 8%; }
-.concept-a .balloon.two { background: #a8c8fb; top: 11%; right: 10%; animation-delay: -2s; }
-.concept-a .balloon.three { background: #ffe39a; top: 31%; left: 16%; width: 3.85rem; animation-delay: -3s; }
-.concept-a .balloon.four { background: #f6d0df; top: 29%; right: 14%; width: 4rem; animation-delay: -1.2s; }
-
-.concept-a .hero-stage {
-  inset: 2% 0 2%;
-}
+.concept-a .balloon.one { background: #f4bfd7; top: 12%; left: 8%; }
+.concept-a .balloon.two { background: #a8c8fb; top: 10%; right: 10%; animation-delay: -2s; }
+.concept-a .balloon.three { background: #ffe39a; top: 34%; left: 14%; width: 3.85rem; animation-delay: -3s; }
+.concept-a .balloon.four { background: #f6d0df; top: 31%; right: 14%; width: 4rem; animation-delay: -1.2s; }
 
 .concept-a .moon-halo {
   left: 50%;
-  top: 18%;
+  top: 0;
   width: min(15rem, 60vw);
   height: min(15rem, 60vw);
   transform: translateX(-50%);
@@ -727,10 +742,8 @@ a {
 }
 
 .concept-a .portrait-frame {
-  left: 58%;
-  top: 36%;
-  transform: translateX(-50%);
-  width: min(13.6rem, 62vw);
+  position: relative;
+  width: 100%;
   min-height: 14rem;
   padding: 1.35rem 1.05rem 1.15rem;
   border-radius: 40% 40% 43% 43% / 24% 24% 28% 28%;
@@ -742,6 +755,7 @@ a {
   display: grid;
   place-items: center;
   text-align: center;
+  z-index: 2;
 }
 
 .concept-a .portrait-frame::before {
@@ -805,19 +819,9 @@ a {
 }
 
 .concept-a .paw-print.one {
-  top: 14%;
-  left: 30%;
+  top: 18%;
+  right: 24%;
   transform: rotate(-16deg);
-}
-
-.concept-a .paw-print.two {
-  right: 18%;
-  bottom: 14%;
-  transform: rotate(14deg);
-}
-
-.concept-a .paw-print.two span {
-  background: rgba(143, 186, 246, 0.22);
 }
 
 .concept-a .badge {
@@ -844,8 +848,8 @@ a {
 }
 
 .concept-a .badge-two {
-  right: 8%;
-  top: 12%;
+  right: 11%;
+  bottom: 12%;
   width: 3.4rem;
   transform: rotate(10deg);
   background: rgba(169, 201, 249, 0.24);
@@ -853,8 +857,8 @@ a {
 }
 
 .concept-a .badge-hero {
-  left: 58%;
-  top: 14%;
+  left: 50%;
+  top: 6%;
   width: 4.2rem;
   transform: translateX(-50%);
   z-index: 2;
@@ -894,11 +898,11 @@ a {
 }
 
 .concept-a .hero-dog {
-  left: 58%;
-  bottom: 2%;
+  position: relative;
   width: min(8.2rem, 34vw);
   height: min(9rem, 38vw);
-  transform: translateX(-50%);
+  margin-top: -1.2rem;
+  z-index: 3;
 }
 
 .concept-a .dog-ear,
