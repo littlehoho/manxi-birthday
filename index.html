@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manxi Turns 4 | Pastel Whimsical Invitation</title>
+    <meta
+      name="description"
+      content="A whimsical pastel birthday invitation for Manxi's 4th birthday celebration."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page-shell concept-a">
+    <a class="skip-link" href="#details">Skip to details</a>
+
+    <header class="hero">
+      <div class="container">
+        <div class="hero-card motif-corners reveal">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow">Magical pastel birthday</div>
+              <h1 class="hero-title">
+                <span class="accent">A little afternoon to celebrate</span>
+                Manxi
+              </h1>
+              <p class="hero-age">turns four</p>
+              <p class="hero-subtitle">
+                Soft sparkles, sweet cake, and a dreamy play-filled party for one very special birthday girl.
+              </p>
+
+              <div class="hero-event-card" aria-label="Party essentials">
+                <div class="hero-event-item">
+                  <span class="label">When</span>
+                  <span class="value">April 12th 2026, 3-5pm</span>
+                </div>
+                <div class="hero-event-item">
+                  <span class="label">Where</span>
+                  <span class="value">Treehouse Play Place, 7 North Ave Larchmont, NY 10538</span>
+                </div>
+              </div>
+
+              <div class="hero-actions">
+                <a
+                  class="button button-primary button-rsvp"
+                  href="https://forms.gle/gXrFscva7ei7rv187"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="RSVP for Manxi's fourth birthday party"
+                >
+                  RSVP with love
+                </a>
+                <button
+                  class="button button-secondary"
+                  type="button"
+                  data-copy-location="Treehouse Play Place, 7 North Ave Larchmont, NY 10538"
+                >
+                  Copy address
+                </button>
+              </div>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+              <div class="balloon one"></div>
+              <div class="balloon two"></div>
+              <div class="sparkle one"></div>
+              <div class="sparkle two"></div>
+              <div class="sparkle three"></div>
+              <div class="hero-stage">
+                <div class="moon-halo"></div>
+                <div class="portrait-frame">
+                  <div class="portrait-number">4</div>
+                  <div class="portrait-label">sweet years</div>
+                </div>
+                <div class="cake">
+                  <div class="cake-top"></div>
+                  <div class="cake-base"></div>
+                  <div class="candle one"></div>
+                  <div class="candle two"></div>
+                  <div class="candle three"></div>
+                  <div class="candle four"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="details">
+      <section class="section">
+        <div class="container">
+          <div class="section-grid three-up">
+            <article class="info-card motif-corners reveal">
+              <h2 class="section-title">At a glance</h2>
+              <p class="section-kicker">A clean and readable event summary for parents.</p>
+              <div class="info-list">
+                <div class="info-item">
+                  <span class="label">Date</span>
+                  <span class="value">April 12th 2026</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Time</span>
+                  <span class="value">3-5pm</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Location</span>
+                  <span class="value">Treehouse Play Place, 7 North Ave Larchmont, NY 10538</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card motif-corners reveal">
+              <h2 class="section-title">Party details</h2>
+              <p class="section-kicker">Just enough detail, without crowding the page.</p>
+              <div class="detail-list">
+                <div class="detail-item">
+                  <span class="value">Magical pastel mood</span>
+                  <span class="detail-note">Think soft color, birthday cake, and a playful afternoon together.</span>
+                </div>
+                <div class="detail-item">
+                  <span class="value">Play-ready and party-cute</span>
+                  <span class="detail-note">Comfortable clothes are perfect for little guests who want to move and celebrate.</span>
+                </div>
+                <div class="detail-item">
+                  <span class="value">Please RSVP in advance</span>
+                  <span class="detail-note">A quick reply helps us plan treats, playtime, and sweet little surprises.</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <article class="rsvp-card motif-corners reveal">
+            <div class="rsvp-head">
+              <div>
+                <h2 class="section-title">Little friends joining</h2>
+                <p class="section-kicker">This list can update automatically from your RSVP responses and only shows children's first names.</p>
+              </div>
+              <div class="count-badge" data-guest-count>Guest list updates here</div>
+            </div>
+            <p class="detail-note" data-guest-status>Connect a Google Sheets or Apps Script response feed to populate this automatically.</p>
+            <ul class="name-list" aria-label="Attending kids first names" data-guest-list></ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-note">
+      <div class="container">Made for GitHub Pages with simple static files that are easy to edit later.</div>
+    </footer>
+
+    <script>
+      window.partyGuestListConfig = {
+        // Connect your Google Form to a Google Sheet, then either:
+        // 1. publish that sheet as CSV, or
+        // 2. expose a small Apps Script JSON endpoint.
+        sourceUrl: "https://script.google.com/macros/s/AKfycbyvxP3hrpoNiDMb1yAZQL-P1X-cKjXuJy36qXU2ZWXoNPL2K3WhJ0jLu5vp5l4JLwi1Xw/exec",
+        format: "json",
+        firstNameField: "Kid First Name",
+      };
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
