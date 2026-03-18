@@ -111,12 +111,13 @@
     if (!totalShown) {
       hideGroup("yes");
       guestCountRowElement.hidden = true;
-      guestSummaryElement.textContent = "No public RSVPs yet";
+      guestSummaryElement.hidden = true;
       guestStatusElement.textContent =
-        "Once replies come in, this section will show only children's first names for yes responses.";
+        "We can't wait to fill this with the friends who are coming to celebrate.";
       return;
     }
 
+    guestSummaryElement.hidden = false;
     renderGroup("yes", yesNames, "coming");
     guestSummaryElement.textContent = buildSummaryText(yesNames.length);
     guestStatusElement.textContent =
@@ -170,6 +171,7 @@
 
   function setUnavailableState(summary, statusMessage) {
     guestSummaryElement.textContent = summary;
+    guestSummaryElement.hidden = false;
     guestStatusElement.textContent = statusMessage;
     guestCountRowElement.hidden = true;
     hideGroup("yes");
