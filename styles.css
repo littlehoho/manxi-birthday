@@ -1418,15 +1418,15 @@ a {
     top: 0.95rem;
     width: 2.12rem;
     height: 3.05rem;
-    z-index: 3;
+    z-index: 1;
   }
 
   .concept-a .dog-ear.left {
-    left: 0.2rem;
+    left: 0.38rem;
   }
 
   .concept-a .dog-ear.right {
-    right: 0.2rem;
+    right: 0.38rem;
   }
 
   .concept-a .dog-body {
@@ -1507,7 +1507,7 @@ a {
   }
 
   .concept-a .hero-dog {
-    top: 12.9rem;
+    top: 13.7rem;
     width: 7.8rem;
     height: 8.8rem;
   }
@@ -1553,7 +1553,7 @@ a {
   }
 
   .concept-a .hero-dog {
-    top: 13.4rem;
+    top: 14.7rem;
     width: 9rem;
     height: 9.8rem;
   }
