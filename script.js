@@ -3,17 +3,11 @@
 (function () {
   const guestSummaryElement = document.querySelector("[data-guest-summary]");
   const guestStatusElement = document.querySelector("[data-guest-status]");
-  const guestCountRowElement = document.querySelector("[data-guest-count-row]");
-  const yesCountElement = document.querySelector("[data-yes-count]");
-  const noCountElement = document.querySelector("[data-no-count]");
   const groupSections = {
     yes: document.querySelector('[data-guest-group="yes"]'),
   };
   const groupLists = {
     yes: document.querySelector('[data-guest-list="yes"]'),
-  };
-  const groupCountElements = {
-    yes: document.querySelector('[data-count-for="yes"]'),
   };
   const reveals = document.querySelectorAll(".reveal");
 
@@ -114,10 +108,6 @@
 
     if (!totalShown) {
       hideGroup("yes");
-      guestCountRowElement.hidden = true;
-      yesCountElement.textContent = "";
-      noCountElement.textContent = "";
-      noCountElement.hidden = true;
       guestSummaryElement.style.display = "none";
       guestStatusElement.textContent =
         "We can't wait to fill this with the friends who are coming to celebrate.";
@@ -125,23 +115,12 @@
     }
 
     guestSummaryElement.style.display = "";
-    renderGroup("yes", yesNames, "coming");
-    guestSummaryElement.textContent = buildSummaryText(yesNames.length);
-    guestStatusElement.textContent =
-      "Only children's first names and public-safe yes responses are shown here.";
-
-    guestCountRowElement.hidden = false;
-    yesCountElement.textContent = yesNames.length === 1 ? "1 yes" : `${yesNames.length} yes`;
-
-    if (config.showNoCount && noCount > 0) {
-      noCountElement.hidden = false;
-      noCountElement.textContent = noCount === 1 ? "1 not able to make it" : `${noCount} not able to make it`;
-    } else {
-      noCountElement.hidden = true;
-    }
+    renderGroup("yes", yesNames);
+    guestSummaryElement.textContent = buildSummaryText(yesNames.length, noCount, config.showNoCount);
+    guestStatusElement.textContent = "We'll show first names of friends who are coming.";
   }
 
-  function renderGroup(status, names, label) {
+  function renderGroup(status, names) {
     if (!names.length) {
       hideGroup(status);
       return;
@@ -149,10 +128,8 @@
 
     const section = groupSections[status];
     const list = groupLists[status];
-    const count = groupCountElements[status];
 
     section.hidden = false;
-    count.textContent = names.length === 1 ? `1 ${label}` : `${names.length} ${label}`;
 
     names.forEach((name) => {
       const item = document.createElement("li");
@@ -164,12 +141,10 @@
   function hideGroup(status) {
     const section = groupSections[status];
     const list = groupLists[status];
-    const count = groupCountElements[status];
 
-    if (!section || !list || !count) return;
+    if (!section || !list) return;
     section.hidden = true;
     list.innerHTML = "";
-    count.textContent = "";
   }
 
   function clearList(list) {
@@ -180,15 +155,18 @@
     guestSummaryElement.textContent = summary;
     guestSummaryElement.style.display = "";
     guestStatusElement.textContent = statusMessage;
-    guestCountRowElement.hidden = true;
-    yesCountElement.textContent = "";
-    noCountElement.textContent = "";
-    noCountElement.hidden = true;
     hideGroup("yes");
   }
 
-  function buildSummaryText(yesCount) {
-    return yesCount === 1 ? "1 friend is joining the fun" : `${yesCount} friends are joining the fun`;
+  function buildSummaryText(yesCount, noCount, showNoCount) {
+    const yesLabel = yesCount === 1 ? "1 coming" : `${yesCount} coming`;
+
+    if (showNoCount && noCount > 0) {
+      const noLabel = noCount === 1 ? "1 can't make it" : `${noCount} can't make it`;
+      return `${yesLabel} · ${noLabel}`;
+    }
+
+    return yesLabel;
   }
 
   function groupGuestsFromRows(rows, config) {
