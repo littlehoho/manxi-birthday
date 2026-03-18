@@ -1378,7 +1378,7 @@ a {
 
 @media (max-width: 719px) {
   .concept-a .hero-art {
-    min-height: 34rem;
+    min-height: 32rem;
   }
 
   .concept-a .hero-scene {
@@ -1386,37 +1386,37 @@ a {
   }
 
   .concept-a .composition-group {
-    top: 42%;
-    width: min(13.5rem, 64%);
-    height: 19rem;
+    top: 43.5%;
+    width: min(12.6rem, 60%);
+    height: 17.8rem;
   }
 
   .concept-a .portrait-frame {
-    width: min(11.4rem, 86%);
-    min-height: 11.2rem;
+    width: min(11rem, 84%);
+    min-height: 10.9rem;
   }
 
   .concept-a .hero-dog {
-    top: 10rem;
-    width: min(7.8rem, 56%);
-    height: 8.6rem;
+    top: 10.35rem;
+    width: min(6.9rem, 50%);
+    height: 7.7rem;
   }
 
   .concept-a .dog-head {
-    top: 0.45rem;
-    width: 5.35rem;
-    height: 5.2rem;
+    top: 0.6rem;
+    width: 5.05rem;
+    height: 4.95rem;
   }
 
   .concept-a .dog-ear {
-    top: 0.9rem;
-    width: 2.1rem;
-    height: 3.1rem;
+    top: 1rem;
+    width: 1.95rem;
+    height: 2.95rem;
   }
 
   .concept-a .dog-body {
-    width: 4.9rem;
-    height: 3.55rem;
+    width: 4.55rem;
+    height: 3.2rem;
   }
 }
 
