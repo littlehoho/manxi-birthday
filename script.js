@@ -79,7 +79,11 @@
   }
 
   async function loadGuests(config) {
-    const response = await fetch(config.sourceUrl, {
+    const requestUrl = new URL(config.sourceUrl, window.location.href);
+    requestUrl.searchParams.set("_", String(Date.now()));
+
+    const response = await fetch(requestUrl.toString(), {
+      cache: "no-store",
       headers: {
         Accept: config.format === "json" ? "application/json" : "text/csv",
       },
@@ -111,13 +115,16 @@
     if (!totalShown) {
       hideGroup("yes");
       guestCountRowElement.hidden = true;
-      guestSummaryElement.hidden = true;
+      yesCountElement.textContent = "";
+      noCountElement.textContent = "";
+      noCountElement.hidden = true;
+      guestSummaryElement.style.display = "none";
       guestStatusElement.textContent =
         "We can't wait to fill this with the friends who are coming to celebrate.";
       return;
     }
 
-    guestSummaryElement.hidden = false;
+    guestSummaryElement.style.display = "";
     renderGroup("yes", yesNames, "coming");
     guestSummaryElement.textContent = buildSummaryText(yesNames.length);
     guestStatusElement.textContent =
@@ -171,9 +178,12 @@
 
   function setUnavailableState(summary, statusMessage) {
     guestSummaryElement.textContent = summary;
-    guestSummaryElement.hidden = false;
+    guestSummaryElement.style.display = "";
     guestStatusElement.textContent = statusMessage;
     guestCountRowElement.hidden = true;
+    yesCountElement.textContent = "";
+    noCountElement.textContent = "";
+    noCountElement.hidden = true;
     hideGroup("yes");
   }
 
@@ -231,8 +241,21 @@
   }
 
   function normalizePublicRsvpFeed(payload) {
-    const yesNames = uniqueSorted(Array.isArray(payload.yes) ? payload.yes.map(sanitizeFirstName) : []);
-    const safeNoCount = Number.isFinite(payload.noCount) ? Math.max(0, payload.noCount) : 0;
+    if (Array.isArray(payload)) {
+      return groupGuestsFromRows(payload, window.partyGuestListConfig || {});
+    }
+
+    const yesSource = Array.isArray(payload.yes)
+      ? payload.yes
+      : Array.isArray(payload.kids)
+        ? payload.kids
+        : [];
+
+    const yesNames = uniqueSorted(yesSource.map(sanitizeFirstName));
+
+    const safeNoCount = Number.isFinite(payload.noCount)
+      ? Math.max(0, payload.noCount)
+      : 0;
 
     return {
       yes: yesNames,
@@ -251,6 +274,14 @@
 
   function normalizeStatus(value) {
     const normalized = String(value || "").trim().toLowerCase();
+
+    if (normalized.includes("yes")) {
+      return "yes";
+    }
+
+    if (normalized.includes("no")) {
+      return "no";
+    }
 
     if (["yes", "y", "going", "attending"].includes(normalized)) {
       return "yes";

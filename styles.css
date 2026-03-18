@@ -24,6 +24,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
   min-height: 100%;
@@ -681,28 +685,24 @@ a {
 
 .concept-a .hero-scene {
   position: absolute;
-  inset: 1rem;
-  display: grid;
-  place-items: center;
+  inset: 1.1rem 1.15rem 1.4rem;
 }
 
 .concept-a .composition-group {
-  position: relative;
+  position: absolute;
+  left: 43%;
+  top: 54%;
+  transform: translate(-50%, -50%);
   z-index: 3;
-  width: min(14.5rem, 62%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 2.5rem;
+  width: min(15.5rem, 58%);
+  height: min(18.5rem, 80%);
 }
 
 .concept-a .rescue-arc {
-  left: 50%;
-  top: 14%;
-  width: min(18rem, 78%);
-  height: min(15rem, 64%);
-  transform: translateX(-50%);
+  left: 18%;
+  right: 12%;
+  top: 9%;
+  height: 54%;
   border: 2px dashed rgba(143, 186, 246, 0.26);
   border-bottom: 0;
   border-radius: 999px 999px 0 0;
@@ -726,25 +726,28 @@ a {
   background: rgba(136, 113, 153, 0.35);
 }
 
-.concept-a .balloon.one { background: #f4bfd7; top: 12%; left: 8%; }
-.concept-a .balloon.two { background: #a8c8fb; top: 10%; right: 10%; animation-delay: -2s; }
-.concept-a .balloon.three { background: #ffe39a; top: 34%; left: 14%; width: 3.85rem; animation-delay: -3s; }
-.concept-a .balloon.four { background: #f6d0df; top: 31%; right: 14%; width: 4rem; animation-delay: -1.2s; }
+.concept-a .balloon.one { background: #f4bfd7; top: 11%; left: 5%; }
+.concept-a .balloon.two { background: #a8c8fb; top: 9%; right: 6%; animation-delay: -2s; }
+.concept-a .balloon.three { background: #ffe39a; top: 29%; left: 15%; width: 3.85rem; animation-delay: -3s; }
+.concept-a .balloon.four { background: #f6d0df; top: 26%; right: 15%; width: 4rem; animation-delay: -1.2s; }
 
 .concept-a .moon-halo {
   left: 50%;
-  top: 0;
-  width: min(15rem, 60vw);
-  height: min(15rem, 60vw);
+  top: 5%;
+  width: min(14rem, 88%);
+  height: min(14rem, 88%);
   transform: translateX(-50%);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 244, 214, 0.72), rgba(255, 244, 214, 0.12) 66%, transparent 72%);
 }
 
 .concept-a .portrait-frame {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
   width: 100%;
-  min-height: 14rem;
+  min-height: 12.8rem;
   padding: 1.35rem 1.05rem 1.15rem;
   border-radius: 40% 40% 43% 43% / 24% 24% 28% 28%;
   background:
@@ -819,9 +822,20 @@ a {
 }
 
 .concept-a .paw-print.one {
-  top: 18%;
-  right: 24%;
+  top: 11%;
+  right: 29%;
   transform: rotate(-16deg);
+}
+
+.concept-a .paw-print.two {
+  right: 14%;
+  bottom: 18%;
+  transform: rotate(12deg);
+  opacity: 0.3;
+}
+
+.concept-a .paw-print.two span {
+  background: rgba(143, 186, 246, 0.18);
 }
 
 .concept-a .badge {
@@ -842,24 +856,24 @@ a {
 }
 
 .concept-a .badge-one {
-  left: 12%;
-  bottom: 16%;
+  left: 7%;
+  bottom: 22%;
   transform: rotate(-8deg);
 }
 
 .concept-a .badge-two {
-  right: 11%;
-  bottom: 12%;
-  width: 3.4rem;
-  transform: rotate(10deg);
+  right: 9%;
+  top: 18%;
+  width: 3rem;
+  transform: rotate(12deg);
   background: rgba(169, 201, 249, 0.24);
   border-color: rgba(141, 176, 235, 0.26);
 }
 
 .concept-a .badge-hero {
-  left: 50%;
-  top: 6%;
-  width: 4.2rem;
+  left: 64%;
+  top: 7%;
+  width: 3.7rem;
   transform: translateX(-50%);
   z-index: 2;
   animation: drift 4.6s ease-in-out infinite;
@@ -898,10 +912,12 @@ a {
 }
 
 .concept-a .hero-dog {
-  position: relative;
-  width: min(8.2rem, 34vw);
-  height: min(9rem, 38vw);
-  margin-top: -1.2rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(8.2rem, 52%);
+  height: min(9rem, 42%);
+  transform: translateX(-50%);
   z-index: 3;
 }
 
@@ -1428,6 +1444,7 @@ a {
 
   .concept-a .composition-group {
     width: 15.2rem;
+    height: 19.2rem;
   }
 
   .concept-a .portrait-frame {
