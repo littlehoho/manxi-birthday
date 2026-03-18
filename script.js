@@ -1,9 +1,20 @@
-// Shared enhancements for the invitation concepts.
-// Keeps animation subtle and disables itself gracefully where unsupported.
+// Shared enhancements for the invitation site.
+// Keeps motion subtle and reads only from a sanitized public RSVP feed.
 (function () {
-  const guestCountElement = document.querySelector("[data-guest-count]");
-  const guestListElement = document.querySelector("[data-guest-list]");
+  const guestSummaryElement = document.querySelector("[data-guest-summary]");
   const guestStatusElement = document.querySelector("[data-guest-status]");
+  const guestCountRowElement = document.querySelector("[data-guest-count-row]");
+  const yesCountElement = document.querySelector("[data-yes-count]");
+  const noCountElement = document.querySelector("[data-no-count]");
+  const groupSections = {
+    yes: document.querySelector('[data-guest-group="yes"]'),
+  };
+  const groupLists = {
+    yes: document.querySelector('[data-guest-list="yes"]'),
+  };
+  const groupCountElements = {
+    yes: document.querySelector('[data-count-for="yes"]'),
+  };
   const reveals = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window && reveals.length) {
@@ -40,7 +51,7 @@
           button.textContent = original;
         }, 1600);
       } catch (error) {
-        // Fail silently; the main action is still the RSVP link.
+        // Fail silently; the RSVP link remains the primary action.
       }
     });
   });
@@ -48,19 +59,22 @@
   initializeGuestList();
 
   function initializeGuestList() {
-    if (!guestCountElement || !guestListElement || !guestStatusElement) return;
+    if (!guestSummaryElement || !guestStatusElement) return;
 
     const config = window.partyGuestListConfig || {};
     if (!config.sourceUrl) {
-      guestCountElement.textContent = "Guest list updates here";
-      guestListElement.hidden = true;
+      setUnavailableState(
+        "Guest list updates here",
+        "Add a sanitized public RSVP feed to show first-name-only responses."
+      );
       return;
     }
 
     loadGuests(config).catch(() => {
-      guestCountElement.textContent = "Guest list unavailable";
-      guestStatusElement.textContent = "We could not load the first-name guest list right now.";
-      guestListElement.hidden = true;
+      setUnavailableState(
+        "Guest list unavailable",
+        "We could not load the public RSVP summary right now."
+      );
     });
   }
 
@@ -75,60 +89,176 @@
       throw new Error("Guest source request failed");
     }
 
-    const rows =
+    const payload =
       config.format === "json"
-        ? normalizeJsonFeed(await response.json(), config)
+        ? await response.json()
         : parseCsv(await response.text());
 
-    const guests = extractFirstNames(rows, config.firstNameField);
-    renderGuests(guests);
+    const groupedGuests = config.format === "json"
+      ? normalizePublicRsvpFeed(payload)
+      : groupGuestsFromRows(payload, config);
+
+    renderGuests(groupedGuests, config);
   }
 
-  function renderGuests(guests) {
-    guestListElement.innerHTML = "";
+  function renderGuests(groupedGuests, config) {
+    const yesNames = groupedGuests.yes;
+    const noCount = groupedGuests.noCount;
+    const totalShown = yesNames.length;
 
-    if (!guests.length) {
-      guestCountElement.textContent = "No RSVP names yet";
-      guestStatusElement.textContent = "Once replies come in, children's first names can appear here automatically.";
-      guestListElement.hidden = true;
+    clearList(groupLists.yes);
+
+    if (!totalShown) {
+      hideGroup("yes");
+      guestCountRowElement.hidden = true;
+      guestSummaryElement.textContent = "No public RSVPs yet";
+      guestStatusElement.textContent =
+        "Once replies come in, this section will show only children's first names for yes responses.";
       return;
     }
 
-    guestCountElement.textContent =
-      guests.length === 1 ? "1 little friend is joining" : `${guests.length} little friends are joining`;
+    renderGroup("yes", yesNames, "coming");
+    guestSummaryElement.textContent = buildSummaryText(yesNames.length);
+    guestStatusElement.textContent =
+      "Only children's first names and public-safe yes responses are shown here.";
 
-    guestStatusElement.textContent = "Only children's first names are shown here for privacy.";
-    guestListElement.hidden = false;
+    guestCountRowElement.hidden = false;
+    yesCountElement.textContent = yesNames.length === 1 ? "1 yes" : `${yesNames.length} yes`;
 
-    guests.forEach((name) => {
+    if (config.showNoCount && noCount > 0) {
+      noCountElement.hidden = false;
+      noCountElement.textContent = noCount === 1 ? "1 not able to make it" : `${noCount} not able to make it`;
+    } else {
+      noCountElement.hidden = true;
+    }
+  }
+
+  function renderGroup(status, names, label) {
+    if (!names.length) {
+      hideGroup(status);
+      return;
+    }
+
+    const section = groupSections[status];
+    const list = groupLists[status];
+    const count = groupCountElements[status];
+
+    section.hidden = false;
+    count.textContent = names.length === 1 ? `1 ${label}` : `${names.length} ${label}`;
+
+    names.forEach((name) => {
       const item = document.createElement("li");
       item.textContent = name;
-      guestListElement.appendChild(item);
+      list.appendChild(item);
     });
   }
 
-  function extractFirstNames(rows, preferredField) {
+  function hideGroup(status) {
+    const section = groupSections[status];
+    const list = groupLists[status];
+    const count = groupCountElements[status];
+
+    if (!section || !list || !count) return;
+    section.hidden = true;
+    list.innerHTML = "";
+    count.textContent = "";
+  }
+
+  function clearList(list) {
+    if (list) list.innerHTML = "";
+  }
+
+  function setUnavailableState(summary, statusMessage) {
+    guestSummaryElement.textContent = summary;
+    guestStatusElement.textContent = statusMessage;
+    guestCountRowElement.hidden = true;
+    hideGroup("yes");
+  }
+
+  function buildSummaryText(yesCount) {
+    return yesCount === 1 ? "1 friend is joining the fun" : `${yesCount} friends are joining the fun`;
+  }
+
+  function groupGuestsFromRows(rows, config) {
     const list = Array.isArray(rows) ? rows : [];
-    const fallbackFields = [
-      preferredField,
-      "Child First Name",
-      "First Name",
-      "Kid First Name",
-      "Child Name",
-      "Name",
-    ].filter(Boolean);
+    const fieldNames = {
+      firstName: [
+        config.firstNameField,
+        "Kid First Name",
+        "Child First Name",
+        "First Name",
+        "Child Name",
+        "Name",
+      ].filter(Boolean),
+      status: [
+        config.statusField,
+        "RSVP Status",
+        "RSVP",
+        "Response",
+        "Status",
+      ].filter(Boolean),
+    };
 
-    const names = list
-      .map((row) => {
-        if (!row || typeof row !== "object") return "";
+    const grouped = {
+      yes: [],
+      noCount: 0,
+    };
 
-        const field = fallbackFields.find((key) => Object.prototype.hasOwnProperty.call(row, key));
-        const rawName = field ? row[field] : "";
-        return sanitizeFirstName(rawName);
-      })
-      .filter(Boolean);
+    list.forEach((row) => {
+      if (!row || typeof row !== "object") return;
 
-    return Array.from(new Set(names)).sort((left, right) => left.localeCompare(right));
+      const rawName = getFieldValue(row, fieldNames.firstName);
+      const rawStatus = getFieldValue(row, fieldNames.status);
+      const firstName = sanitizeFirstName(rawName);
+      const normalizedStatus = normalizeStatus(rawStatus);
+
+      if (normalizedStatus === "no") {
+        grouped.noCount += 1;
+        return;
+      }
+
+      if (!firstName) return;
+
+      if (normalizedStatus === "yes") {
+        grouped.yes.push(firstName);
+      }
+    });
+
+    grouped.yes = uniqueSorted(grouped.yes);
+    return grouped;
+  }
+
+  function normalizePublicRsvpFeed(payload) {
+    const yesNames = uniqueSorted(Array.isArray(payload.yes) ? payload.yes.map(sanitizeFirstName) : []);
+    const safeNoCount = Number.isFinite(payload.noCount) ? Math.max(0, payload.noCount) : 0;
+
+    return {
+      yes: yesNames,
+      noCount: safeNoCount,
+    };
+  }
+
+  function uniqueSorted(names) {
+    return Array.from(new Set(names.filter(Boolean))).sort((left, right) => left.localeCompare(right));
+  }
+
+  function getFieldValue(row, fieldNames) {
+    const key = fieldNames.find((candidate) => Object.prototype.hasOwnProperty.call(row, candidate));
+    return key ? row[key] : "";
+  }
+
+  function normalizeStatus(value) {
+    const normalized = String(value || "").trim().toLowerCase();
+
+    if (["yes", "y", "going", "attending"].includes(normalized)) {
+      return "yes";
+    }
+
+    if (["no", "n", "not attending", "cannot make it", "can't make it"].includes(normalized)) {
+      return "no";
+    }
+
+    return "unknown";
   }
 
   function sanitizeFirstName(value) {
@@ -139,7 +269,6 @@
 
     const firstToken = trimmed.split(/\s+/)[0];
     const clean = firstToken.replace(/[^A-Za-z'-]/g, "");
-
     return clean ? clean.charAt(0).toUpperCase() + clean.slice(1).toLowerCase() : "";
   }
 
@@ -198,19 +327,5 @@
 
       return entry;
     });
-  }
-
-  function normalizeJsonFeed(payload, config) {
-    if (Array.isArray(payload)) {
-      return payload;
-    }
-
-    if (payload && Array.isArray(payload.kids)) {
-      return payload.kids.map((name) => ({
-        [config.firstNameField || "Child First Name"]: name,
-      }));
-    }
-
-    return [];
   }
 })();

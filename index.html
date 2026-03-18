@@ -142,13 +142,27 @@
           <article class="rsvp-card motif-corners reveal">
             <div class="rsvp-head">
               <div>
-                <h2 class="section-title">Little friends joining</h2>
-                <p class="section-kicker">This list can update automatically from your RSVP responses and only shows children's first names.</p>
+                <h2 class="section-title">Friends Joining The Celebration</h2>
+                <p class="section-kicker">A cheerful public RSVP view that only shows safe, first-name-only yes responses.</p>
               </div>
-              <div class="count-badge" data-guest-count>Guest list updates here</div>
+              <div class="count-badge" data-guest-summary>Checking the guest list</div>
             </div>
-            <p class="detail-note" data-guest-status>Connect a Google Sheets or Apps Script response feed to populate this automatically.</p>
-            <ul class="name-list" aria-label="Attending kids first names" data-guest-list></ul>
+            <p class="detail-note" data-guest-status>Loading a first-name-only yes list.</p>
+
+            <div class="guest-groups" data-guest-groups>
+              <section class="guest-group" data-guest-group="yes" hidden>
+                <div class="guest-group-head">
+                  <h3 class="guest-group-title">Yes, coming to play</h3>
+                  <span class="guest-group-count" data-count-for="yes"></span>
+                </div>
+                <ul class="name-list" aria-label="Children attending" data-guest-list="yes"></ul>
+              </section>
+            </div>
+
+            <div class="guest-count-row" data-guest-count-row hidden>
+              <span class="count-badge subtle" data-yes-count>0 yes</span>
+              <span class="count-badge subtle" data-no-count hidden>0 not able to make it</span>
+            </div>
           </article>
         </div>
       </section>
@@ -166,6 +180,8 @@
         sourceUrl: "https://script.google.com/macros/s/AKfycbyvxP3hrpoNiDMb1yAZQL-P1X-cKjXuJy36qXU2ZWXoNPL2K3WhJ0jLu5vp5l4JLwi1Xw/exec",
         format: "json",
         firstNameField: "Kid First Name",
+        statusField: "RSVP Status",
+        showNoCount: true,
       };
     </script>
     <script src="script.js"></script>
