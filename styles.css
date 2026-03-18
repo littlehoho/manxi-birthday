@@ -673,6 +673,7 @@ a {
     radial-gradient(circle at 72% 72%, rgba(220, 126, 153, 0.12), transparent 22%),
     linear-gradient(180deg, rgba(255, 249, 251, 0.96), rgba(245, 249, 255, 0.76));
   border: 1px solid rgba(223, 214, 241, 0.75);
+  min-height: 31rem;
 }
 
 .concept-a .hero-scene {
@@ -683,11 +684,11 @@ a {
 .concept-a .composition-group {
   position: absolute;
   left: 50%;
-  top: 54%;
+  top: 44%;
   transform: translate(-50%, -50%);
   z-index: 3;
-  width: min(15rem, 54%);
-  height: min(17rem, 76%);
+  width: min(13rem, 60%);
+  height: 18rem;
 }
 
 .concept-a .balloon {
@@ -728,8 +729,8 @@ a {
   left: 50%;
   top: 0;
   transform: translateX(-50%);
-  width: min(12rem, 88%);
-  min-height: 11.9rem;
+  width: min(11.25rem, 84%);
+  min-height: 11.4rem;
   padding: 1.35rem 1.05rem 1.15rem;
   border-radius: 40% 40% 43% 43% / 24% 24% 28% 28%;
   background:
@@ -907,9 +908,9 @@ a {
 .concept-a .hero-dog {
   position: absolute;
   left: 50%;
-  top: 12.9rem;
-  width: min(8.2rem, 52%);
-  height: min(8.8rem, 40%);
+  top: 10.7rem;
+  width: min(6.8rem, 48%);
+  height: 7.6rem;
   transform: translateX(-50%);
   z-index: 3;
 }
@@ -1406,6 +1407,27 @@ a {
     min-width: 14.5rem;
   }
 
+  .concept-a .hero-art {
+    min-height: 26rem;
+  }
+
+  .concept-a .composition-group {
+    top: 50%;
+    width: min(14.2rem, 56%);
+    height: 18rem;
+  }
+
+  .concept-a .portrait-frame {
+    width: 12.8rem;
+    min-height: 12.6rem;
+  }
+
+  .concept-a .hero-dog {
+    top: 12rem;
+    width: 7.8rem;
+    height: 8.8rem;
+  }
+
   .primary-card {
     padding: 1.9rem;
   }
@@ -1438,6 +1460,7 @@ a {
   .concept-a .composition-group {
     width: 15.2rem;
     height: 19.2rem;
+    top: 54%;
   }
 
   .concept-a .portrait-frame {
@@ -1446,6 +1469,7 @@ a {
   }
 
   .concept-a .hero-dog {
+    top: 12.9rem;
     width: 9rem;
     height: 9.8rem;
   }
