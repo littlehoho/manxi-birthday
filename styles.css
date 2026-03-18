@@ -1376,6 +1376,50 @@ a {
   50% { transform: translateY(-12px) rotate(12deg); }
 }
 
+@media (max-width: 719px) {
+  .concept-a .hero-art {
+    min-height: 34rem;
+  }
+
+  .concept-a .hero-scene {
+    inset: 1rem;
+  }
+
+  .concept-a .composition-group {
+    top: 42%;
+    width: min(13.5rem, 64%);
+    height: 19rem;
+  }
+
+  .concept-a .portrait-frame {
+    width: min(11.4rem, 86%);
+    min-height: 11.2rem;
+  }
+
+  .concept-a .hero-dog {
+    top: 10rem;
+    width: min(7.8rem, 56%);
+    height: 8.6rem;
+  }
+
+  .concept-a .dog-head {
+    top: 0.45rem;
+    width: 5.35rem;
+    height: 5.2rem;
+  }
+
+  .concept-a .dog-ear {
+    top: 0.9rem;
+    width: 2.1rem;
+    height: 3.1rem;
+  }
+
+  .concept-a .dog-body {
+    width: 4.9rem;
+    height: 3.55rem;
+  }
+}
+
 @media (min-width: 720px) {
   .hero {
     padding: 1.9rem 0 3.1rem;
