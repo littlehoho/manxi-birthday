@@ -268,14 +268,12 @@ a {
 
 .map-link {
   text-decoration: none;
-  border-bottom: 1px solid rgba(143, 186, 246, 0.45);
-  transition: color 180ms ease, border-color 180ms ease;
+  transition: color 180ms ease;
 }
 
 .map-link:hover,
 .map-link:focus-visible {
   color: #315f9f;
-  border-color: rgba(49, 95, 159, 0.6);
 }
 
 .hero-art {
